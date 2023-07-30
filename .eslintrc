@@ -1,0 +1,7 @@
+{
+    "plugins": ["@react-native"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}
