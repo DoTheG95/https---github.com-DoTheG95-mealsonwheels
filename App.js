@@ -1,5 +1,4 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import { StatusBar, StyleSheet } from 'react-native';
 import { RestaurantScreen } from './src/features/restaurants/screens/RestaurantScreen';
 
 export default function App() {
@@ -10,7 +9,3 @@ export default function App() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-
-});
