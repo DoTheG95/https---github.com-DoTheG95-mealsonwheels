@@ -27,7 +27,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 }
 const RestaurantCardText = styled.Text`
     padding:5px;
-    color:black;
+    color:${(props)=> props.theme.colors.ui.primary};
     `
 const StyledRestaurantCard = styled(Card)`
     backgroundColor:white;
