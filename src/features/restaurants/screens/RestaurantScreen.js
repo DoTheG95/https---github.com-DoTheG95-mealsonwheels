@@ -2,29 +2,29 @@ import react from "react";
 import { StatusBar, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import { RestaurantInfoCard } from "../components/RestaurantInfoCard";
+import styled from 'styled-components/native'
 
 export const RestaurantScreen = () => (
-    <SafeAreaView style={styles.appScreen}>
-        <View style={styles.searchBarContainer}>
-          <Searchbar />
-        </View>
-        <View style={styles.mainScreenContainer}>
+    <CustomSafeAreaView>
+        <CustomSearchBarView>
+            <Searchbar />
+        </CustomSearchBarView>    
+        <CustomMainView>
           <RestaurantInfoCard />
-        </View>
-      </SafeAreaView>
+        </CustomMainView>
+      </CustomSafeAreaView>
 )
 
-const styles = StyleSheet.create({
-    appScreen:{
-      flex:1, 
-      marginTop: StatusBar.currentHeight 
-    },
-    searchBarContainer:{
-      padding:16,
-    },
-    mainScreenContainer:{
-      flex:1,
-      padding:16, 
-      backgroundColor: 'lightgrey'
-    }
-  });
+
+const CustomSafeAreaView = styled(SafeAreaView)`
+    flex:1;
+    ${StatusBar.currentHeight && `margin-top: ${StausBar.currentHeight}px`}; 
+`
+const CustomSearchBarView = styled.View`
+    padding: ${(props) => props.theme.space[3]};
+`
+const CustomMainView = styled.View`
+    flex:1;
+    padding: ${(props) => props.theme.space[3]};
+    backgroundColor:${(props)=> props.theme.colors.bg.primary};
+`
