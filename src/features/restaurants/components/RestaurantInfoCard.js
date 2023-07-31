@@ -2,6 +2,8 @@ import react from "react";
 import { StyleSheet, Text } from 'react-native';
 import { Card } from 'react-native-paper';
 import styled from 'styled-components/native'
+import { SvgXml } from "react-native-svg";
+import {star} from '../../../../assets/star';
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
     const{
@@ -19,16 +21,28 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <StyledRestaurantCard elevation={4}>
             <StyledRestaurantCardCover key={name} source={{uri:photos[0]}}/>
             <Card.Content>
-                <RestaurantCardText>{name}</RestaurantCardText>
+                <RestaurantName>{name}</RestaurantName>
+                <SvgXml xml={star} width={20} height={20} />
+                <RestaurantAddress>{address}</RestaurantAddress>
             </Card.Content>
         </StyledRestaurantCard>
     ) 
 
 }
-const RestaurantCardText = styled.Text`
+const RestaurantName = styled(Text)`
+    font-family: ${(props)=>props.theme.fonts.heading};
+    font-size:${(props) => props.theme.fontSizes.title};
     padding: ${(props) => props.theme.space[1]};
     color:${(props)=> props.theme.colors.ui.white};
     `
+const RestaurantAddress = styled(Text)`
+    font-family: ${(props)=>props.theme.fonts.body};
+    font-size:${(props) => props.theme.fontSizes.caption};
+    padding: ${(props) => props.theme.space[1]};
+    color:${(props)=> props.theme.colors.ui.white};
+`
+
+
 const StyledRestaurantCard = styled(Card)`
     backgroundColor: ${(props) => props.theme.colors.bg.white};
     `
