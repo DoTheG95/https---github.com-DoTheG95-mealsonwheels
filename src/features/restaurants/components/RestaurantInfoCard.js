@@ -7,10 +7,10 @@ import {star} from '../../../../assets/star';
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
     const{
-        name = "Gary and Nao's Restaurant",
+        name = "Ramen Restaurant",
         icon ,
         photos = [ "https://tb-static.uber.com/prod/image-proc/processed_images/a922567e47ce9af7b14729f34023b1df/c73ecc27d2a9eaa735b1ee95304ba588.jpeg" ],
-        address = "18 Harris Drive",
+        address = "123 ABC Drive",
         openingHours = true ,
         rating = 5,
         isClosedTemporarily = false ,
@@ -22,7 +22,6 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             <StyledRestaurantCardCover key={name} source={{uri:photos[0]}}/>
             <Card.Content>
                 <RestaurantName>{name}</RestaurantName>
-                <SvgXml xml={star} width={20} height={20} />
                 <RestaurantAddress>{address}</RestaurantAddress>
             </Card.Content>
         </StyledRestaurantCard>
