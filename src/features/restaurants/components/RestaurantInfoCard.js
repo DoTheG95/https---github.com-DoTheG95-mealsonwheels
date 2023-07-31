@@ -26,13 +26,13 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
 }
 const RestaurantCardText = styled.Text`
-    padding:5px;
-    color:${(props)=> props.theme.colors.ui.primary};
+    padding: ${(props) => props.theme.space[1]};
+    color:${(props)=> props.theme.colors.ui.white};
     `
 const StyledRestaurantCard = styled(Card)`
-    backgroundColor:white;
+    backgroundColor: ${(props) => props.theme.colors.bg.white};
     `
 const StyledRestaurantCardCover = styled(Card.Cover)`
-    padding:20px;
-    backgroundColor:white;
+    padding: ${(props) => props.theme.space[3]};
+    backgroundColor: ${(props) => props.theme.colors.bg.white};
     `
