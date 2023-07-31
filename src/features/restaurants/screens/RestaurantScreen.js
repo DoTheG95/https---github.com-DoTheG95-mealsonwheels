@@ -21,10 +21,10 @@ const CustomSafeAreaView = styled(SafeAreaView)`
     ${StatusBar.currentHeight && `margin-top: ${StausBar.currentHeight}px`}; 
 `
 const CustomSearchBarView = styled.View`
-    padding: ${(props) => props.theme.space[4]};
+    padding: ${(props) => props.theme.space[3]};
 `
 const CustomMainView = styled.View`
     flex:1;
-    padding: ${(props) => props.theme.space[4]};
+    padding: ${(props) => props.theme.space[3]};
     backgroundColor:${(props)=> props.theme.colors.bg.primary};
 `
