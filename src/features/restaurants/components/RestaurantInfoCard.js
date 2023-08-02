@@ -14,7 +14,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         photos = [ "https://tb-static.uber.com/prod/image-proc/processed_images/a922567e47ce9af7b14729f34023b1df/c73ecc27d2a9eaa735b1ee95304ba588.jpeg" ],
         address = "123 ABC Drive",
         openingHours = '10am - 7pm',
-        isOpenNow = true ,
+        isOpenNow = true,
         rating = 3.2,
         isClosedTemporarily = false ,
         favourite = true, 
@@ -34,6 +34,9 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                         ))}
                     </RatingStars>
                     <OpenView>
+                        {!isOpenNow && (
+                            <Text style={{color:"red"}}>Currently closed</Text>
+                        )}
                         {isOpenNow && <SvgXml xml={openIcon} width={20} height={20}/> }
                     </OpenView>
                 </RatingAndOpenView>
