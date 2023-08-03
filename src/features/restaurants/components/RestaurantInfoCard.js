@@ -5,6 +5,7 @@ import { SvgXml } from "react-native-svg";
 import styled from 'styled-components/native'
 import  {star} from '../../../../assets/star'
 import { openIcon } from "../../../../assets/openicon";
+import { Spacer } from "../../../components/spacer/spacer_component";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
@@ -14,9 +15,9 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         photos = [ "https://tb-static.uber.com/prod/image-proc/processed_images/a922567e47ce9af7b14729f34023b1df/c73ecc27d2a9eaa735b1ee95304ba588.jpeg" ],
         address = "123 ABC Drive",
         openingHours = '10am - 7pm',
-        isOpenNow = true,
+        isOpenNow = false,
         rating = 3.2,
-        isClosedTemporarily = false ,
+        isClosedTemporarily = true,
         favourite = true, 
     } = restaurant;
     
@@ -34,6 +35,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                         ))}
                     </RatingStars>
                     <OpenView>
+                        {isClosedTemporarily && (
+                            <Text style={{color:"red"}}>
+                                TEMPORARILY
+                            </Text>
+                        )}
+                        <Spacer variant="left.large" />
                         {!isOpenNow && (
                             <Text style={{color:"red"}}>Currently closed</Text>
                         )}
