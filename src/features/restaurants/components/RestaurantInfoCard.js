@@ -1,5 +1,5 @@
 import react from "react";
-import { Text } from 'react-native';
+import { Text, Image } from 'react-native';
 import { Card } from 'react-native-paper';
 import { SvgXml } from "react-native-svg";
 import styled from 'styled-components/native'
@@ -11,11 +11,11 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
     const{
         name = "Ramen Restaurant",
-        icon = {openIcon},
+        icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
         photos = [ "https://tb-static.uber.com/prod/image-proc/processed_images/a922567e47ce9af7b14729f34023b1df/c73ecc27d2a9eaa735b1ee95304ba588.jpeg" ],
         address = "123 ABC Drive",
         openingHours = '10am - 7pm',
-        isOpenNow = false,
+        isOpenNow = true,
         rating = 3.2,
         isClosedTemporarily = true,
         favourite = true, 
@@ -40,11 +40,15 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                                 TEMPORARILY
                             </Text>
                         )}
-                        <Spacer variant="left.large" />
-                        {!isOpenNow && (
-                            <Text style={{color:"red"}}>Currently closed</Text>
-                        )}
-                        {isOpenNow && <SvgXml xml={openIcon} width={20} height={20}/> }
+                        <Spacer position="left" size="large" >
+                            {!isOpenNow && (
+                                <Text style={{color:"red"}}>Currently closed</Text>
+                            )}
+                            {isOpenNow && <SvgXml xml={openIcon} width={20} height={20}/> }
+                        </Spacer>
+                        <Spacer position="left" size="large" >
+                            <Image source={{uri:icon}} style={{ width:15, height:15 }} />
+                        </Spacer>
                     </OpenView>
                 </RatingAndOpenView>
                 <RestaurantAddress>{address}</RestaurantAddress>
